@@ -1,0 +1,26 @@
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import CustomAi from "./pages/CustomAi";
+import Portfolio from "./pages/Portfolio";
+import Outsourcing from "./pages/Outsourcing";
+import Header from "./components/layout/Header";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/custom-ai" element={<CustomAi />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/outsourcing" element={<Outsourcing />} />
+      </Routes>
+      {/* <Footer /> */}
+    </BrowserRouter>
+  );
+}
+
+export default App;
