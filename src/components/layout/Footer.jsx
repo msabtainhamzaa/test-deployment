@@ -1,26 +1,32 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets";
 import Button from "../shared/Button";
 
-const items = [
+const sitemap = [
   {
     label: "Home",
-    subItems: [
-      { label: "Outsourcing", path: "/outsourcing" },
-      { label: "Custom AI", path: "/custom-ai" },
-    ],
+    path: "/",
   },
-  { label: "Outsourcing", path: "/portfolio" },
-  { label: "About", path: "/about" },
+  { label: "Outsourcing", path: "/outsourcing" },
+  { label: "Custom Development", path: "/portfolio" },
+  { label: "Portfolio", path: "/portfolio" },
+];
+const contacts = [
+  {
+    label: "Calendly",
+    path: "/",
+  },
+  { label: "Linkedin", path: "/outsourcing" },
+  { label: "Github", path: "/portfolio" },
+  { label: "E-mail Us", path: "/portfolio" },
 ];
 
-const siteMap = ["Home", "Outsourcing", "Custom Development", "Portfolio"];
 const contactUs = ["Calendly", "Linkedin", "Github", "E-mail Us"];
 
 const Footer = () => {
   return (
-    <section className="bg-[#DCECF0] px-10 py-20 flex justify-center items-center w-full">
+    <section className="bg-[#DCECF0] px-5 py-10 flex justify-center items-center w-full">
       <div className="w-full bg-[#D0DFE2] text-[#1F1F1F] rounded-4xl py-3">
         <div className="px-20 w-full flex  justify-between items-center">
           <div>
@@ -43,14 +49,39 @@ const Footer = () => {
               />
             </div>
             <div className="max-w-md text-[15px] leading-5 mb-5">
-              AI systems. Custom or outsourced.From design to deployment, we
-              combine engineering execution with structured project management.
+              AI systems. Custom or outsourced. <br />
+              From design to deployment, we combine engineering execution with
+              structured project management.
             </div>
             <Button>Back to Top</Button>
           </div>
-          <div className="flex justify-start items-start">
-            <div>Sitemap</div>
-            {/* {sitemap} */}
+          <div className="flex justify-start items-start gap-20 md:w-[45%] w-full">
+            <div>
+              <div className="text-lg font-semibold mb-4">Sitemap</div>
+              <div className="flex justify-start items-start flex-col gap-y-2">
+                {sitemap.map((item) => (
+                  <Link
+                    to={item.path}
+                    className={`text-[15px] transition-all duration-300 text-[#1F1F1F] hover:text-[#2f80c9]`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="text-lg font-semibold mb-4">Contact Us</div>
+              <div className="flex justify-start items-start flex-col gap-y-2">
+                {contacts.map((item) => (
+                  <Link
+                    to={item.path}
+                    className={`text-[15px] transition-all duration-300 text-[#1F1F1F] hover:text-[#2f80c9]`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         <div className="text-xs px-10 mt-10 mb-5">
