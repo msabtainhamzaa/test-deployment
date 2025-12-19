@@ -1,5 +1,3 @@
-import React from "react";
-
 const AnimatedCards = ({ projects }) => {
   return (
     <div className="w-full">
